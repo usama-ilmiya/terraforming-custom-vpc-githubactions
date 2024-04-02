@@ -2,8 +2,8 @@ name: Terraform Apply
 
 on:
   push:
-    paths:
-      - 'terraforming-custom-vpc-githubactions/**'  # Trigger only when changes are pushed to this folder
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -15,7 +15,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: latest
+          terraform_version: 1.0.0
 
       - name: Terraform Init
         run: terraform init
